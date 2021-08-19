@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+/* Variables CSS */
+
+:root {
+    --header-height: 3rem;
+    --first-color: #000000;
+    --first-color-lighter: #ECF3F2;
+    --title-color: #11443F;
+    --text-color: #5B7B78;
+    --body-color: #F5FFFE;
+
+    /* Font and typhography */
+    --body-font: 'Poppins', sans-serif;
+    --biggest-font-size: 3rem;
+    --big-font-size: 1.25rem;
+    --normal-font-size: .938rem;
+
+    /* Font weight */
+    --font-medium: 500;
+    --font-semi-bold: 600;
+
+    /* Z-Index */
+    --z-tooltip: 10;
+    --z-fixed: 100;
+}
+
+@media screen and (min-width:1024px) {
+    :root {
+        --biggest-font-size: 5.5rem;
+        --big-font-size: 2rem;
+        --normal-font-size: 1rem;
+    }
+}
+
+/* Base */
+*,::before,::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    background-color: var(--body-color);
+    color: var(--text-color);
+}
+
+h1,h2,ul,p {
+    margin: 0;
+}
+
+ul {
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Layout */
+
+.main {
+    position: relative;
+}
+
+.bd-container {
+    max-width: 968px;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+}
+
+/* Header */
+.header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: var(--z-fixed);
+}
+
+/* Nav */
+.nav {
+    max-width: 968px;
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media screen and (max-width:768px) {
+    .nav_menu {
+        position: fixed;
+        top: -100%;
+        left: 0;
+        right: 0;
+        width: 90%;
+        margin: 0 auto;
+        text-align: center;
+        padding-top: 1.5rem;
+        background-color: var(--first-color-lighter);
+        border-radius: 1rem;
+        transition: .4s;
+    }
+}
+
+.nav_logo,
+.nav_toggle {
+    color: var(--first-color-lighter);
+}
+
+.nav_link {
+    color: var(--title-color);
+    font-weight: var(--font-medium);
+}
+
+.nav_link:hover {
+    color: red;
+    transition: 1s;
+}
+
+.nav_logo {
+    font-size: 1.3rem;
+}
+
+.nav_logo:hover {
+    color: red;
+    transition: 1s;
+}
+
+.bx {
+    font-size: 1.3rem;
+}
+
+.nav_item {
+    margin-bottom: 1.5rem;
+}
+
+.nav_toggle {
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+/* Show menu */
+.show-menu {
+    top: calc(var(--header-height) + 1rem);
+}
+
+/* Series */
+.series {
+    height: 100vh;
+    position: relative;
+}
+
+.series_bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    object-position: center;
+}
+
+.series_container {
+    position: relative;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 2fr .25fr;
+    align-content: center;
+}
+
+.series_subtitle,
+.series_title,
+.series_description {
+    color:var(--first-color-lighter);
+}
+
+.series_subtitle{
+    font-size: var(--big-font-size);
+    font-weight: var(--font-medium);
+}
+
+.series_title{
+    font-size: var(--biggest-font-size);
+}
+
+.series_description {
+    margin-bottom: 1rem;
+}
+
+.series_button {
+    display: inline-flex;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background-color: var(--first-color-lighter);
+    color: var(--first-color);
+    border-radius: .5rem;
+    font-weight: var(--font-medium);
+}
+
+.series_button:hover {
+    background-color: black;
+    transition: 1s;
+    color: red;
+}
+/*========== MEDIA QUERIES ==========*/
+/* For small devices */
+@media screen and (max-width: 320px) {
+    .bd-container {
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+    .series_container {
+      column-gap: .25rem;
+    }
+  }
+  
+@media screen and (min-width: 768px) {
+    .nav {
+      height: calc(var(--header-height) + 1.5rem);
+    }
+    .nav_list {
+      display: flex;
+    }
+    .nav_item {
+      margin-right: 2rem;
+      margin-bottom: 0;
+    }
+    .nav_link {
+      color: var(--body-color);
+    }
+    .nav_toggle {
+      display: none;
+    }
+    .series_container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .series_description {
+      padding-right: 5rem;
+      margin-bottom: 2rem;
+    }
+  }
+  
+@media screen and (min-width: 1024px) {
+    .bd-container {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .series_description {
+      padding-right: 11rem;
+    }
+  }
